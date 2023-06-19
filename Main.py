@@ -21,7 +21,9 @@ DSP = I2C_LCD_driver.lcd()
 equation = ''
 
 def clear():
-    
+    global equation
+    del equation
+    equation = ''
     DSP.lcd_clear()
     
 def solve(eq):
@@ -144,3 +146,4 @@ def Main():
             
 while True:
     Main()
+ 
