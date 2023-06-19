@@ -30,15 +30,19 @@ def solve(eq):
     
     global equation
   
-    result = eval(eq)
-        
-    result_str = str(result)
-    number_of_characters = len(result_str)
-
-    if number_of_characters > 16:
-        DSP.lcd_display_string("ERROR", 2)
+    try:
+        result = eval(eq)
+    except:
+        DSP.lcd_display_string("error", 2)
     else:
-        DSP.lcd_display_string(result_str, 2)
+        
+        result_str = str(result)
+        number_of_characters = len(result_str)
+
+        if number_of_characters > 16:
+            DSP.lcd_display_string("ERROR", 2)
+        else:
+            DSP.lcd_display_string(result_str, 2)
     
     
 def Main():
